@@ -1,0 +1,2 @@
+require 'Sinatra'
+enable :sessions
