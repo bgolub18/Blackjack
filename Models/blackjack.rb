@@ -1,4 +1,5 @@
 class Game
+	attr_accessor :your_hand, :dealer_hand, :score, :dealer_score
 	def initialize
 		#@name = name
 		#@players =["Ben", "Reis", "James", "Dean", "Daniel", "Ned"]
@@ -8,7 +9,7 @@ class Game
 		@deck = (1..52).to_a.shuffle
 		@your_hand = [@deck.shift, @deck.shift]
 		@dealer_hand = [@deck.shift, @deck.shift]
-		@score = ((@your_hand[0]-1)/4) + ((@your_hand[1]-1)/4)
+		@score = ((@your_hand[0]-1)/4) + ((@your_hand[1]-1)/4))
 		@dealer_score = ((@dealer_hand[0]-1)/4) + ((@dealer_hand[1]-1)/4)
 	end
 	def value(card)
