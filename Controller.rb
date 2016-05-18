@@ -15,5 +15,8 @@ post '/' do
 		@hand = "You\'re score is now #{@score}."
 		if @score > 21
 			@end = "You busted. The dealer wins with a score of #{@dealer_score}."
+			erb :results
+		else
+
 	
 end 
