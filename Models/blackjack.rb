@@ -1,7 +1,7 @@
 class Game
-	def initialize(name)
-		@name = name
-		@players =["Ben", "Reis", "James", "Dean", "Daniel", "Ned"]
+	def initialize
+		#@name = name
+		#@players =["Ben", "Reis", "James", "Dean", "Daniel", "Ned"]
 		# if @players.include?(@name)
 		# 	@players.delete(@name)
 		# end
@@ -11,7 +11,7 @@ class Game
 		@score = ((@your_hand[0]-1)/4) + ((@your_hand[1]-1)/4)
 		@dealer_score = ((@dealer_hand[0]-1)/4) + ((@dealer_hand[1]-1)/4)
 	end
-	def card=(card)
+	def value(card)
 		case (card-1)/13
 		when 0
 			suit = "spades"
@@ -49,8 +49,6 @@ class Game
 				elsif @dealer_score<= 21
 					return "dealer wins with a score of #{@dealer_score}"
 				end
-			elsif @score <=	21
-				return @score
 			end 	
 		when "stand"
 			while ((@dealer_score <= @score) && (@dealer_score <= 16)) 
