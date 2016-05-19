@@ -16,9 +16,20 @@ post '/' do
 		if session[:game].your_score > 21
 			@end = "You busted. The dealer wins with a score of #{session[:game].dealer_score}."
 			erb :results
-		else
+		else 
+			@context = "Do you want to hit again?"
+			erb :index
 		end
-	end
-
-	
+	when "stand"
+		if (session[:game].dealer_score > 21) && (session[:game].your_score <= 21)
+			@end = "The dealer busted, so you win."
+		elsif (session[:game].your_score <= 21) && (session[:game].dealer_score <=21)
+			if session[:game].your_score > session[:game].dealer_score
+				@end = "You win!"
+			else 
+				@end = "The dealer wins."
+			end
+		end
+		erb :results
+	end	
 end 

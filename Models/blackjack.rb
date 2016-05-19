@@ -83,17 +83,5 @@ class Game
 				end
 			end
 		end
-		if (@dealer_score > 21) && (@your_score<= 21)
-			return "The dealer busts, and you win." 
-		elsif (@your_score > 21) && (@dealer_score<= 21)
-			return "You bust, and the dealer wins."
-		elsif (@dealer_score <= 21) && (@your_score <= 21)
-			if @your_score > @dealer_score 
-				return "You win!"
-			else 
-				return "The dealer wins."
-			end
-			
-		end	
 	end
 end
