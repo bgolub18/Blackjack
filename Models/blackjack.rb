@@ -1,5 +1,5 @@
 class Game
-	attr_accessor :your_hand, :dealer_hand, :your_score, :dealer_score
+	attr_accessor :your_hand, :dealer_hand, :your_score, :dealer_score, :end
 	def initialize
 		#@name = name
 		#@players =["Ben", "Reis", "James", "Dean", "Daniel", "Ned"]
@@ -80,6 +80,15 @@ class Game
 				@dealer_score = 0
 				@dealer_hand.each do |card|
 					@dealer_score += score(card)
+				end
+			end
+			if (@dealer_score > 21) && (@your_score <= 21)
+				@end = "The dealer busted, so you win."
+			elsif (@your_score <= 21) && (@dealer_score <=21)
+				if @your_score > @dealer_score
+					@end = "You win!"
+				else 
+					@end = "The dealer wins."
 				end
 			end
 		end
