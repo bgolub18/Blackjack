@@ -8,6 +8,7 @@ get '/' do
 	@dealer = "#{session[:game].value(session[:game].dealer_hand[0])}"
 	@context = "Do you stand or hit?"
 	erb :index
+	#b
 end
 post '/' do
 	session[:game].play(params[:choice])
