@@ -26,15 +26,7 @@ post '/' do
 	when "stand"
 		@hand = "You\'re score is #{session[:game].your_score}."
 		@dealer = "The dealer is showing a score of #{session[:game].dealer_score}."
-		if (session[:game].dealer_score > 21) && (session[:game].your_score <= 21)
-			@end = "The dealer busted, so you win."
-		elsif (session[:game].your_score <= 21) && (session[:game].dealer_score <=21)
-			if session[:game].your_score > session[:game].dealer_score
-				@end = "You win!"
-			else 
-				@end = "The dealer wins."
-			end
-		end
+		@end = session[:game].end
 		erb :results
 	end	
 end 
